@@ -9,8 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VeiculosRouteImport } from './routes/veiculos'
+import { Route as PontuacaoRouteImport } from './routes/pontuacao'
+import { Route as PagamentosRouteImport } from './routes/pagamentos'
+import { Route as NotificacoesRouteImport } from './routes/notificacoes'
+import { Route as MultasRouteImport } from './routes/multas'
+import { Route as MaisRouteImport } from './routes/mais'
+import { Route as HistoricoRouteImport } from './routes/historico'
+import { Route as CnhRouteImport } from './routes/cnh'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VeiculosRoute = VeiculosRouteImport.update({
+  id: '/veiculos',
+  path: '/veiculos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PontuacaoRoute = PontuacaoRouteImport.update({
+  id: '/pontuacao',
+  path: '/pontuacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagamentosRoute = PagamentosRouteImport.update({
+  id: '/pagamentos',
+  path: '/pagamentos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificacoesRoute = NotificacoesRouteImport.update({
+  id: '/notificacoes',
+  path: '/notificacoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MultasRoute = MultasRouteImport.update({
+  id: '/multas',
+  path: '/multas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaisRoute = MaisRouteImport.update({
+  id: '/mais',
+  path: '/mais',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoricoRoute = HistoricoRouteImport.update({
+  id: '/historico',
+  path: '/historico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CnhRoute = CnhRouteImport.update({
+  id: '/cnh',
+  path: '/cnh',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +67,144 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cnh': typeof CnhRoute
+  '/historico': typeof HistoricoRoute
+  '/mais': typeof MaisRoute
+  '/multas': typeof MultasRoute
+  '/notificacoes': typeof NotificacoesRoute
+  '/pagamentos': typeof PagamentosRoute
+  '/pontuacao': typeof PontuacaoRoute
+  '/veiculos': typeof VeiculosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cnh': typeof CnhRoute
+  '/historico': typeof HistoricoRoute
+  '/mais': typeof MaisRoute
+  '/multas': typeof MultasRoute
+  '/notificacoes': typeof NotificacoesRoute
+  '/pagamentos': typeof PagamentosRoute
+  '/pontuacao': typeof PontuacaoRoute
+  '/veiculos': typeof VeiculosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cnh': typeof CnhRoute
+  '/historico': typeof HistoricoRoute
+  '/mais': typeof MaisRoute
+  '/multas': typeof MultasRoute
+  '/notificacoes': typeof NotificacoesRoute
+  '/pagamentos': typeof PagamentosRoute
+  '/pontuacao': typeof PontuacaoRoute
+  '/veiculos': typeof VeiculosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/cnh'
+    | '/historico'
+    | '/mais'
+    | '/multas'
+    | '/notificacoes'
+    | '/pagamentos'
+    | '/pontuacao'
+    | '/veiculos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/cnh'
+    | '/historico'
+    | '/mais'
+    | '/multas'
+    | '/notificacoes'
+    | '/pagamentos'
+    | '/pontuacao'
+    | '/veiculos'
+  id:
+    | '__root__'
+    | '/'
+    | '/cnh'
+    | '/historico'
+    | '/mais'
+    | '/multas'
+    | '/notificacoes'
+    | '/pagamentos'
+    | '/pontuacao'
+    | '/veiculos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CnhRoute: typeof CnhRoute
+  HistoricoRoute: typeof HistoricoRoute
+  MaisRoute: typeof MaisRoute
+  MultasRoute: typeof MultasRoute
+  NotificacoesRoute: typeof NotificacoesRoute
+  PagamentosRoute: typeof PagamentosRoute
+  PontuacaoRoute: typeof PontuacaoRoute
+  VeiculosRoute: typeof VeiculosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/veiculos': {
+      id: '/veiculos'
+      path: '/veiculos'
+      fullPath: '/veiculos'
+      preLoaderRoute: typeof VeiculosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pontuacao': {
+      id: '/pontuacao'
+      path: '/pontuacao'
+      fullPath: '/pontuacao'
+      preLoaderRoute: typeof PontuacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pagamentos': {
+      id: '/pagamentos'
+      path: '/pagamentos'
+      fullPath: '/pagamentos'
+      preLoaderRoute: typeof PagamentosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notificacoes': {
+      id: '/notificacoes'
+      path: '/notificacoes'
+      fullPath: '/notificacoes'
+      preLoaderRoute: typeof NotificacoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/multas': {
+      id: '/multas'
+      path: '/multas'
+      fullPath: '/multas'
+      preLoaderRoute: typeof MultasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mais': {
+      id: '/mais'
+      path: '/mais'
+      fullPath: '/mais'
+      preLoaderRoute: typeof MaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historico': {
+      id: '/historico'
+      path: '/historico'
+      fullPath: '/historico'
+      preLoaderRoute: typeof HistoricoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cnh': {
+      id: '/cnh'
+      path: '/cnh'
+      fullPath: '/cnh'
+      preLoaderRoute: typeof CnhRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,16 +217,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CnhRoute: CnhRoute,
+  HistoricoRoute: HistoricoRoute,
+  MaisRoute: MaisRoute,
+  MultasRoute: MultasRoute,
+  NotificacoesRoute: NotificacoesRoute,
+  PagamentosRoute: PagamentosRoute,
+  PontuacaoRoute: PontuacaoRoute,
+  VeiculosRoute: VeiculosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
